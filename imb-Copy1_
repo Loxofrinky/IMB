@@ -1,0 +1,156 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "52300ab9",
+   "metadata": {},
+   "source": [
+    "### IMB JSON"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "1ca1a361",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "inventory = {\n",
+    "    101: {\"Product name\": \"SALVON HANDWASH\",      \"Price\" :70, \"In stock items\" : 50},\n",
+    "    102: {\"Product name\": \"PEANUTS\",              \"Price\": 45, \"In stock items\": 80},\n",
+    "    103: {\"Product name\": \"BESAN POWDER\",         \"Price\": 35, \"In stock items\": 40}, \n",
+    "    104: {\"Product name\": \"HALDI POWDER\",         \"Price\": 25, \"In stock items\": 20}, \n",
+    "    105: {\"Product name\": \"B0URDON BISCUITS\",     \"Price\": 30, \"In stock items\": 70}, \n",
+    "    106: {\"Product name\": \"COLGATE TOOTHPASTE\",   \"Price\": 35, \"In stock items\": 90}, \n",
+    "    107: {\"Product name\": \"MARIGOLD BISCUITS\",    \"Price\": 30, \"In stock items\": 55}, \n",
+    "    108: {\"Product name\": \"LAYS CLASSICS\",        \"Price\": 20, \"In stock items\": 67}, \n",
+    "    109: {\"Product name\": \"AIR SANITISER\",        \"Price\": 50, \"In stock items\": 98}, \n",
+    "    110: {\"Product name\": \"MIXED FRUIT JAM\",      \"Price\": 200, \"In stock items\": 40}, \n",
+    "    111: {\"Product name\": \"ALAMONDS\",             \"Price\": 135, \"In stock items\": 234}, \n",
+    "    112: {\"Product name\": \"PANEER PACKET\",        \"Price\": 130, \"In stock items\": 189}, \n",
+    "    113: {\"Product name\": \"SUNFLOWER OIL\",        \"Price\": 160, \"In stock items\": 210},\n",
+    "    114: {\"Product name\": \"MOONG DAL\",            \"Price\": 40, \"In stock items\": 231}, \n",
+    "    115: {\"Product name\": \"VASELINE\",             \"Price\": 15, \"In stock items\": 321}, \n",
+    "    116: {\"Product name\": \"EAR BUDS\",             \"Price\": 20, \"In stock items\": 80}, \n",
+    "    117: {\"Product name\": \"MAGGI NOODLES\",        \"Price\": 120, \"In stock items\": 170}, \n",
+    "    118: {\"Product name\": \"WHITE PEAS\",           \"Price\": 50, \"In stock items\": 50}, \n",
+    "    119: {\"Product name\": \"SOFFOLA OATS\",         \"Price\": 75, \"In stock items\": 80}, \n",
+    "    120: {\"Product name\": \"LITE POHA\",            \"Price\": 200, \"In stock items\": 320}, \n",
+    "    121: {\"Product name\": \"GROUNDNUT OIL\",        \"Price\": 160, \"In stock items\": 90}, \n",
+    "    122: {\"Product name\": \"KISSAN KETCHUP\" ,       \"Price\": 25, \"In stock items\": 50}, \n",
+    "    123: {\"Product name\": \"MINI SOYA CHUNKS\",     \"Price\": 30, \"In stock items\": 430}, \n",
+    "    124: {\"Product name\": \"GIELETTE SHAVESLIDES\", \"Price\": 15, \"In stock items\": 60}, \n",
+    "    125: {\"Product name\": \"CANDLES\",              \"Price\": 30, \"In stock items\": 80}, \n",
+    "    126: {\"Product name\": \"PAAPPAD\",              \"Price\": 20, \"In stock items\": 398}, \n",
+    "    127: {\"Product name\": \"HAKKA NOODLES\",        \"Price\": 90, \"In stock items\": 234}, \n",
+    "    128: {\"Product name\": \"DARK FANTASY\",         \"Price\": 100, \"In stock items\": 411},\n",
+    "    129: {\"Product name\": \"VERMICELLI\",           \"Price\": 100, \"In stock items\": 59}, \n",
+    "    130: {\"Product name\": \"DRY FRUITS\",           \"Price\": 40, \"In stock items\": 89}\n",
+    "    \n",
+    "}    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "bc688045",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter product ID:129\n",
+      "Enter Quantity:2\n",
+      "product name:  VERMICELLI\n",
+      "price per unit:  100\n",
+      "total amount :  200\n"
+     ]
+    }
+   ],
+   "source": [
+    "ui_product = int(input(\"Enter product ID:\"))\n",
+    "ui_quantity = int(input(\"Enter Quantity:\"))\n",
+    "\n",
+    "product = inventory.get(ui_product)\n",
+    "\n",
+    "if product:\n",
+    "  print('product name: ',product.get('Product name'))\n",
+    "  print('price per unit: ', product.get('Price'))\n",
+    "  print('total amount : ', int(ui_quantity)*(product.get('Price')))\n",
+    "  product['In stock items']-=ui_quantity\n",
+    "else:\n",
+    "  print('product not found')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "5353083f",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import json\n",
+    "\n",
+    "file = open('record.json', 'w')\n",
+    "js=json.dump(inventory, file )\n",
+    "fd = open(\"record.json\",'w')\n",
+    "fd.write('js')\n",
+    "fd.close()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "54ffe606",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "65bdff77",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "f0800ce8",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "a5fa6e64",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
